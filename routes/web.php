@@ -1,38 +1,34 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\CheckInController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LunchController;
+use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SnackController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/participants', [ParticipantController::class, 'index']);
+Route::get('/supporters', [ParticipantController::class, 'supporter']);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/ticket', [TicketController::class, 'index']);
+Route::get('/ticket', [TicketController::class, 'index']);
+Route::post('/ticket/generate', [TicketController::class, 'store']);
 
-require __DIR__.'/auth.php';
+Route::get('/checkin', [CheckInController::class, 'index']);
+Route::get('/checkin/scan', [CheckInController::class, 'scan']);
+Route::post('/checkin/submit', [CheckInController::class, 'store']);
+
+Route::get('/snack', [SnackController::class, 'index']);
+Route::get('/snack/scan', [SnackController::class, 'scan']);
+Route::post('/snack/submit', [SnackController::class, 'store']);
+
+Route::get('/lunch', [LunchController::class, 'index']);
+Route::get('/lunch/scan', [LunchController::class, 'scan']);
+Route::post('/lunch/submit', [LunchController::class, 'store']);
