@@ -48,6 +48,10 @@ function submit() {
                     <th>Asal Sekolah</th>
                     <td>{{ ticket.participant.school }}</td>
                 </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ ticket.participant.status }}</td>
+                </tr>
             </table>
             <Link
                 class="w-full bg-green-600 hover:bg-green-500 font-semibold text-white p-2 rounded-md mt-2"
