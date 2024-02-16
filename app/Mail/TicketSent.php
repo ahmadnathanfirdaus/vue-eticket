@@ -4,7 +4,6 @@ namespace App\Mail;
 
 use App\Models\Ticket;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -28,7 +27,7 @@ class TicketSent extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Ticket Sent',
+            subject: 'Tiket Check-in E-sport ITTS',
         );
     }
 
@@ -38,7 +37,7 @@ class TicketSent extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            markdown: 'mail.ticket.sent',
         );
     }
 

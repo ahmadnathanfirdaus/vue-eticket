@@ -7,7 +7,13 @@ use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SnackController;
 use App\Http\Controllers\TicketController;
+use App\Models\Ticket;
 use Illuminate\Support\Facades\Route;
+
+Route::get('mail', function () {
+    $ticket = Ticket::find(1);
+    return new App\Mail\TicketSent($ticket);
+});
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);

@@ -6,6 +6,7 @@ const form = useForm({
     school: "",
     email: "",
     phone: "",
+    status: "",
 });
 
 function register() {
@@ -20,10 +21,15 @@ function register() {
         <div class="sm:mx-auto sm:w-full sm:max-w-sm text-center">
             <img src="../Assets/itts.png" alt="ITTS" class="h-20 inline" />
             <img src="../Assets/bem.png" alt="BEM ITTS" class="h-20 inline" />
+            <img
+                src="../Assets/esport.png"
+                alt="ESPORT ITTS"
+                class="h-20 inline"
+            />
             <h2
                 class="mt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900"
             >
-                Daftar sebagai supporter
+                Registrasi Ulang
             </h2>
         </div>
 
@@ -34,6 +40,25 @@ function register() {
                 method="POST"
                 @submit.prevent="register"
             >
+                <div>
+                    <label
+                        for="status"
+                        class="block text-sm font-medium leading-6 text-gray-900"
+                        >Player/Supporter</label
+                    >
+                    <div class="mt-2">
+                        <select
+                            name="status"
+                            id="status"
+                            v-model="form.status"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        >
+                            <option disabled selected>Player/Supporter</option>
+                            <option value="player">Player</option>
+                            <option value="supporter">Supporter</option>
+                        </select>
+                    </div>
+                </div>
                 <div>
                     <label
                         for="name"

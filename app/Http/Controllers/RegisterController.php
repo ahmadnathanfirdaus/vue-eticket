@@ -22,12 +22,12 @@ class RegisterController extends Controller
             'school' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
+            'status' => 'required',
         ]);
 
         $data = [];
 
         if ($validated) {
-            $validated['status'] = 'supporter';
             $participant = Participant::create($validated);
             $code = $this->generateCode();
             $ticket = Ticket::create([

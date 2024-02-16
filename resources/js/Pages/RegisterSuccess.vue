@@ -13,6 +13,7 @@ defineProps({
         <div class="sm:mx-auto sm:w-full sm:max-w-sm text-center">
             <img src="../Assets/itts.png" alt="ITTS" class="h-20 inline" />
             <img src="../Assets/bem.png" alt="BEM ITTS" class="h-20 inline" />
+            <img src="../Assets/esport.png" alt="ESPORT ITTS" class="h-20 inline" />
             <h2
                 class="mt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900"
             >
